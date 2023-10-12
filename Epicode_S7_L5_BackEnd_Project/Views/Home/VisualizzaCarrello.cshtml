@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Epicode_S7_L5_BackEnd_Project.Models.CarrelloItem>
+
+@{
+    ViewBag.Title = "VisualizzaCarrello";
+}
+
+<h2>Carrello</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome Prodotto</th>
+                <th>Quantità</th>
+                <th>Prezzo Unitario</th>
+                <th>Subtotale</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carrelloItem in Model)
+            {
+                <tr>
+                    <td>@carrelloItem.Prodotto.Nome</td>
+                    <td>@carrelloItem.Quantita</td>
+                    <td>@carrelloItem.Prodotto.Prezzo</td>
+                    <td>@(carrelloItem.Prodotto.Prezzo * carrelloItem.Quantita)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Il tuo carrello è vuoto.</p>
+}

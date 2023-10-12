@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Epicode_S7_L5_BackEnd_Project.Models.Prodotto>
+
+<h2 class="text-center">Benvenuto su EpiPizza</h2>
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4" style="width: 18rem;">
+                    <img src="@item.FotoUrl" class="card-img-top" alt="Immagine del Prodotto" style="max-height: 180px;">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Nome</h5>
+                        <p class="card-text">Prezzo: @item.Prezzo</p>
+                        <form method="post" action="@Url.Action("AggiungiAlCarrello", "Home")">
+                            @Html.Hidden("id", item.IdProdotto)
+                            @Html.Hidden("nome", item.Nome)
+                            @Html.Hidden("prezzo", item.Prezzo)
+                            <div class="form-group mb-3">
+                                <label for="quantita">Quantità:</label>
+                                <input type="number" class="form-control" name="quantita" min="1" value="1" id="quantita">
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-success">Aggiungi Al Carrello</button>
+                        </form>
+                        @Html.ActionLink("Dettagli", "DettagliProdotto", "Prodotto", new { id = item.IdProdotto }, new { @class = "btn btn-sm btn-warning" })
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="card-text">Il tuo carrello è vuoto.</p>
+    }
+</div>
