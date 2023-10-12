@@ -18,9 +18,9 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         [Key]
         public int IdOrdine { get; set; }
 
-        public int? IdUtente { get; set; }
+        public int IdUtente { get; set; }
 
-        public DateTime? DataOrdine { get; set; }
+        public DateTime DataOrdine { get; set; }
 
         public decimal Importo { get; set; }
 

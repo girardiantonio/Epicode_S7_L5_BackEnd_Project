@@ -12,7 +12,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 {
     public class ProdottoController : Controller
     {
-        private ModelDbContext db = new ModelDbContext();
+        readonly ModelDbContext db = new ModelDbContext();
 
         public ActionResult ListaProdotto()
         {

@@ -8,6 +8,14 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
     public class Carrello
     {
         public List<CarrelloItem> Prodotti { get; set; }
+        public int IdUtente { get; set; }
+        public string IndirizzoConsegna { get; set; }
+        public string NoteSpeciali { get; set; }
+
+        public Carrello()
+        {
+            Prodotti = new List<CarrelloItem>();
+        }
     }
 
     public class CarrelloItem
@@ -15,5 +23,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         public Prodotto Prodotto { get; set; }
         public int Quantita { get; set; }
         public decimal Totale { get; set; }
+        public string IndirizzoConsegna { get; set; }
+        public string NoteSpeciali { get; set; }
     }
 }

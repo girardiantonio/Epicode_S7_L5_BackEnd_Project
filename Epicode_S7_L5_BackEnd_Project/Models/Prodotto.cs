@@ -25,9 +25,9 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         [StringLength(255)]
         public string FotoUrl { get; set; }
 
-        public decimal? Prezzo { get; set; }
+        public decimal Prezzo { get; set; }
 
-        public int? TempoConsegna { get; set; }
+        public int TempoConsegna { get; set; }
 
         [StringLength(255)]
         public string Ingredienti { get; set; }
