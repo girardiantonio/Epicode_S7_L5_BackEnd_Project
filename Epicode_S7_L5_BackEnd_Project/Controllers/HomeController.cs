@@ -136,10 +136,10 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 
             if (Session["UserId"] != null)
             {
-
                 if (Session["Carrello"] is List<CarrelloItem> carrelloItems && carrelloItems.Any())
                 {
-                    decimal totale = carrelloItems.Sum(item => item.Totale);
+                    decimal totale = carrelloItems.Sum(item => item.Prodotto.Prezzo * item.Quantita);
+
                     var nuovoOrdine = new Ordine
                     {
                         IdUtente = (int)Session["UserId"],
