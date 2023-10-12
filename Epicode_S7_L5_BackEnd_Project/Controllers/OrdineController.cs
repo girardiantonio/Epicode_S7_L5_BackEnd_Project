@@ -12,7 +12,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 {
     public class OrdineController : Controller
     {
-        private ModelDbContext db = new ModelDbContext();
+        readonly ModelDbContext db = new ModelDbContext();
 
         public ActionResult ListaOrdine()
         {
