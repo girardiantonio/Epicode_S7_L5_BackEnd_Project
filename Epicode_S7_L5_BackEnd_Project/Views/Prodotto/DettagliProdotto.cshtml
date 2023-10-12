@@ -53,8 +53,10 @@
 @if (User.IsInRole("Admin"))
 {
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.IdProdotto }) |
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Modifica", "ModificaProdotto", new { id = Model.IdProdotto }, new { @class = "btn btn-sm btn-warning" })
+    </p>
+    <p>
+        @Html.ActionLink("Ritorna alla lista", "ListaProdotto")
     </p>
 }
 else

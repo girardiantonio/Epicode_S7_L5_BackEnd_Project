@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Epicode_S7_L5_BackEnd_Project.Models.Ordine>
+
+@{
+    ViewBag.Title = "ListaOrdine";
+    bool isAdmin = User.IsInRole("Admin");
+}
+
+<h2 class="text-center">Lista Ordine</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Utente.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataOrdine)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Importo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IndirizzoConsegna)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoteSpeciali)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Evaso)
+        </th>
+        @if (isAdmin)
+        {
+            <th></th>
+        }
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Utente.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataOrdine)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Importo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirizzoConsegna)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoteSpeciali)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Evaso)
+            </td>
+            @if (isAdmin)
+            {
+                <td>
+                    @Html.ActionLink("Modifica", "ModificaOrdine", new { id = item.IdOrdine })
+                </td>
+            }
+        </tr>
+    }
+
+</table>

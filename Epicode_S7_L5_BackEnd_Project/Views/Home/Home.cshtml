@@ -21,11 +21,14 @@
                             @Html.Hidden("id", item.IdProdotto)
                             @Html.Hidden("nome", item.Nome)
                             @Html.Hidden("prezzo", item.Prezzo)
-                            <div class="form-group mb-3">
-                                <label for="quantita">Quantità:</label>
-                                <input type="number" class="form-control" name="quantita" min="1" value="1" id="quantita">
-                            </div>
-                            <button type="submit" class="btn btn-sm btn-success">Aggiungi Al Carrello</button>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="form-group mb-3">
+                                    <label for="quantita">Quantità:</label>
+                                    <input type="number" class="form-control" name="quantita" min="1" value="1" id="quantita">
+                                </div>
+                                <button type="submit" class="btn btn-sm btn-success mb-3">Aggiungi Al Carrello</button>
+                            }
                         </form>
                         @Html.ActionLink("Dettagli", "DettagliProdotto", "Prodotto", new { id = item.IdProdotto }, new { @class = "btn btn-sm btn-warning" })
                     </div>

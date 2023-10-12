@@ -4,7 +4,7 @@
     ViewBag.Title = "VisualizzaCarrello";
 }
 
-<h2>Carrello</h2>
+<h2 class="text-center">Carrello</h2>
 
 @if (Model != null && Model.Any())
 {
@@ -32,8 +32,8 @@
     if (Model != null && Model.Any())
     {
         decimal totale = Model.Sum(item => item.Prodotto.Prezzo * item.Quantita);
-        <div>
-            <strong>Totale: @totale</strong>
+        <div class="mb-3 mt-3">
+            <h4><strong>Totale: @totale</strong></h4>
         </div>
     }
 }
@@ -43,21 +43,21 @@ else
 }
 @using (Html.BeginForm("ConcludiOrdine", "Home", FormMethod.Post))
 {
-    <div class="form-group">
+    <div class="form-group mb-3">
         @Html.LabelFor(model => model.First().IndirizzoConsegna, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.First().IndirizzoConsegna, new { htmlAttributes = new { @class = "form-control" } })
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group mb-3">
         @Html.LabelFor(model => model.First().NoteSpeciali, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextAreaFor(model => model.First().NoteSpeciali, new { @class = "form-control" })
         </div>
     </div>
 
-    <input type="submit" value="Concludi Ordine" class="btn btn-primary" />
+    <input type="submit" value="Concludi Ordine" class="btn btn-primary mb-3" />
 }
 
 @Html.ActionLink("Torna alla Home", "Home", "Home")

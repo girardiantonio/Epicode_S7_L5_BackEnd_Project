@@ -164,7 +164,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrdineController.cs" />
     <Compile Include="Controllers\ProdottoController.cs" />
+    <Compile Include="Controllers\UtenteController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +209,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\imgs\logo.png" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -261,10 +264,14 @@
     <Content Include="Views\Prodotto\DettagliProdotto.cshtml" />
     <Content Include="Views\Home\Home.cshtml" />
     <Content Include="Views\Home\VisualizzaCarrello.cshtml" />
+    <Content Include="Views\Ordine\ListaOrdine.cshtml" />
+    <Content Include="Views\Ordine\ModificaOrdine.cshtml" />
+    <Content Include="Views\Utente\ListaUtente.cshtml" />
+    <Content Include="Views\Utente\ModificaUtente.cshtml" />
+    <Content Include="Views\Utente\DettaglioUtente.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\imgs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

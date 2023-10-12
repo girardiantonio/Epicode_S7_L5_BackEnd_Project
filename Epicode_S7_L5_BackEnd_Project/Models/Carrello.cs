@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Web;
+using System.Web.WebPages;
 
 namespace Epicode_S7_L5_BackEnd_Project.Models
 {
@@ -23,7 +25,10 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         public Prodotto Prodotto { get; set; }
         public int Quantita { get; set; }
         public decimal Totale { get; set; }
+
+        [DisplayName("Indirizzo di consegna")]
         public string IndirizzoConsegna { get; set; }
+        [DisplayName("Note speciali")]
         public string NoteSpeciali { get; set; }
     }
 }
