@@ -178,7 +178,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 
                     Session["Carrello"] = null;
 
-                    return RedirectToAction("ConfermaOrdine");
+                    return RedirectToAction("Home");
                 }
                 else
                 {

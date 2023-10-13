@@ -21,14 +21,17 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
 
         public int IdUtente { get; set; }
 
+        [DisplayName("Data Ordine")]
         public DateTime DataOrdine { get; set; }
 
         public decimal Importo { get; set; }
 
         [StringLength(255)]
+        [DisplayName("Indirizzo di consegna")]
         public string IndirizzoConsegna { get; set; }
 
         [StringLength(255)]
+        [DisplayName("Note")]
         public string NoteSpeciali { get; set; }
 
         [DisplayName("Stato Ordine")]
