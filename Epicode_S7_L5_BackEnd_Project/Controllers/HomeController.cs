@@ -139,7 +139,13 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
         [HttpPost]
         public ActionResult ConcludiOrdine(string indirizzoConsegna, string noteSpeciali)
         {
+            
             int userId = (int)Session["UserId"];
+
+            if (userId == 0)
+            {
+                FormsAuthentication.SignOut();
+            }
 
             if (Session["UserId"] != null)
             {

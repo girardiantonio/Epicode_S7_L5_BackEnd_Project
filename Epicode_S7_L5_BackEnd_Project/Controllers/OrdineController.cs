@@ -58,7 +58,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             {
                 db.Entry(ordine).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("ListaOrdine");
             }
             ViewBag.IdUtente = new SelectList(db.Utente, "IdUtente", "Nome", ordine.IdUtente);
             return View(ordine);
@@ -69,7 +69,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             Ordine ordine = db.Ordine.Find(id);
             db.Ordine.Remove(ordine);
             db.SaveChanges();
-            return RedirectToAction("ListaProdotto");
+            return RedirectToAction("ListaOrdine");
         }
 
 

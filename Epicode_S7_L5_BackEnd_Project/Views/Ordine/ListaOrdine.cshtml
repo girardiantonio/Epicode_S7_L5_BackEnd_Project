@@ -57,7 +57,7 @@
             @if (isAdmin)
             {
                 <td>
-                    @Html.ActionLink("Modifica", "ModificaOrdine", new { id = item.IdOrdine })
+                    @Html.ActionLink("Modifica", "ModificaOrdine", new { id = item.IdOrdine }, new { @class = "btn btn-sm btn-warning"})
                 </td>
             }
         </tr>

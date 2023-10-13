@@ -2,6 +2,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -39,6 +40,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         [StringLength(255)]
         public string Password { get; set; }
 
+        [DisplayName("Ruolo")]
         public int? IdRuolo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

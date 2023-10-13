@@ -21,6 +21,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             return View(db.Prodotto.ToList());
         }
 
+        [AllowAnonymous]
         public ActionResult DettagliProdotto(int? id)
         {
             if (id == null)

@@ -62,9 +62,7 @@
             @Html.DisplayFor(modelItem => item.Password)
         </td>
         <td>
-            @Html.ActionLink("Modifica", "ModificaUtente", new { id=item.IdUtente }) |
-            @Html.ActionLink("Dettaglio", "DettaglioUtente", new { id=item.IdUtente }) |
-            @Html.ActionLink("Elimina", "EliminaUtente", new { id=item.IdUtente })
+            @Html.ActionLink("Dettaglio", "DettaglioUtente", new { id = item.IdUtente }, new { @class = "btn btn-sm btn-warning" })
         </td>
     </tr>
 }
