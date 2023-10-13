@@ -42,7 +42,6 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             return View(new List<Ordine>());
         }
 
-
         public ActionResult ModificaOrdine(int? id)
         {
             if (id == null)

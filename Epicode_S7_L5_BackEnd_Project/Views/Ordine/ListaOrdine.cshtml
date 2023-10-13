@@ -52,12 +52,20 @@
                 @Html.DisplayFor(modelItem => item.NoteSpeciali)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Evaso)
+                @if (item.Evaso)
+                {
+                    <span>Confermato</span>
+                }
+                else
+                {
+                    <span>In Attesa</span>
+                }
             </td>
+
             @if (isAdmin)
             {
                 <td>
-                    @Html.ActionLink("Modifica", "ModificaOrdine", new { id = item.IdOrdine }, new { @class = "btn btn-sm btn-warning"})
+                    @Html.ActionLink("Modifica", "ModificaOrdine", new { id = item.IdOrdine }, new { @class = "btn btn-sm btn-warning" })
                 </td>
             }
         </tr>
