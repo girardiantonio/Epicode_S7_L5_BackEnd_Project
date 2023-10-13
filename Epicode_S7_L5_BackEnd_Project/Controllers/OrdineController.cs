@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using Epicode_S7_L5_BackEnd_Project.Models;
 
 namespace Epicode_S7_L5_BackEnd_Project.Controllers
@@ -19,9 +20,15 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
         {
             int? userId = (int?)Session["UserId"];
 
+            if (userId == 0)
+            {
+                FormsAuthentication.SignOut();
+                return RedirectToAction("Login");
+            }
+
             if (userId.HasValue)
             {
-                if(User.IsInRole("Admin"))
+                if (User.IsInRole("Admin"))
                 {
                     var ordineAdmin = db.Ordine.Include(o => o.Utente);
                     return View(ordineAdmin.ToList());
@@ -34,6 +41,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             }
             return View(new List<Ordine>());
         }
+
 
         public ActionResult ModificaOrdine(int? id)
         {
