@@ -271,6 +271,7 @@
     <Content Include="Views\Utente\ModificaUtente.cshtml" />
     <Content Include="Views\Utente\DettaglioUtente.cshtml" />
     <Content Include="Views\Ordine\ControlloOrdine.cshtml" />
+    <Content Include="Views\Home\Profilo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
