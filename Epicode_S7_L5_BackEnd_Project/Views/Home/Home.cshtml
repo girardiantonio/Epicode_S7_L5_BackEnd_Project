@@ -5,7 +5,8 @@
 }
 
 <h2 class="text-center">Benvenuto su EpiPizza</h2>
-
+<h6 class="text-center">Il nostro menu</h6>
+<hr />
 <div class="row">
     @if (Model != null && Model.Any())
     {
@@ -13,7 +14,7 @@
         {
             <div class="col-md-4">
                 <div class="card mb-4" style="width: 18rem;">
-                    <img src="@item.FotoUrl" class="card-img-top" alt="Immagine del Prodotto" style="max-height: 180px;">
+                    <img src="~/Content/imgs/@item.FotoUrl" class="card-img-top" alt="Immagine del Prodotto" style="max-height: 180px;">
                     <div class="card-body">
                         <h5 class="card-title">@item.Nome</h5>
                         <p class="card-text">Prezzo: @item.Prezzo</p>

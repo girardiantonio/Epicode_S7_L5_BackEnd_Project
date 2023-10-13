@@ -185,6 +185,7 @@
     <Compile Include="Models\DettaglioOrdine.cs" />
     <Compile Include="Models\ModelDbContext.cs" />
     <Compile Include="Models\Ordine.cs" />
+    <Compile Include="Models\OrdineEvaso.cs" />
     <Compile Include="Models\Prodotto.cs" />
     <Compile Include="Models\Ruolo.cs" />
     <Compile Include="Models\SiteRole.cs" />
@@ -269,6 +270,7 @@
     <Content Include="Views\Utente\ListaUtente.cshtml" />
     <Content Include="Views\Utente\ModificaUtente.cshtml" />
     <Content Include="Views\Utente\DettaglioUtente.cshtml" />
+    <Content Include="Views\Ordine\ControlloOrdine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

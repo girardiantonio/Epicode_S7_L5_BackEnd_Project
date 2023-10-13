@@ -21,7 +21,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.FotoUrl)
+            <img src="~/Content/imgs/@Model.FotoUrl" class="card-img-top" style="height: 200px; width: 200px" alt="@Model.FotoUrl">
         </dd>
 
         <dt>
@@ -61,5 +61,8 @@
 }
 else
 {
+    <p>
+        @Html.ActionLink("Ritorna alla Home", "Home", "Home")
+    </p>
 }
 

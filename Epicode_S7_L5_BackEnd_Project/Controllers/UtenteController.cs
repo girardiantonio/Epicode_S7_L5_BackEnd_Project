@@ -10,6 +10,7 @@ using Epicode_S7_L5_BackEnd_Project.Models;
 
 namespace Epicode_S7_L5_BackEnd_Project.Controllers
 {
+    [Authorize]
     public class UtenteController : Controller
     {
         readonly ModelDbContext db = new ModelDbContext();
@@ -51,7 +52,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ModificaUtente([Bind(Include = "IdUtente,Nome,Cognome,Provincia,Citta,Indirizzo,Email,Password,IdRuolo")] Utente utente)
+        public ActionResult ModificaUtente(Utente utente)
         {
             if (ModelState.IsValid)
             {

@@ -10,20 +10,24 @@ using static Epicode_S7_L5_BackEnd_Project.Models.Prodotto;
 
 namespace Epicode_S7_L5_BackEnd_Project.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         readonly ModelDbContext db = new ModelDbContext();
 
+        [AllowAnonymous]
         public ActionResult Home()
         {
             return View(db.Prodotto.ToList());
         }
 
+        [AllowAnonymous]
         public ActionResult Login()
         {
             return View();
         }
 
+        [AllowAnonymous]
         public ActionResult DettagliProdotto(int? id)
         {
             if (id == null)
@@ -39,7 +43,8 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login([Bind(Include = "Email, Password")] Utente utente)
+        [AllowAnonymous]
+        public ActionResult Login(Utente utente)
         {
             Utente utenteTrovato = db.Utente.FirstOrDefault(u => u.Email == utente.Email && u.Password == utente.Password);
 
@@ -58,6 +63,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             }
         }
 
+        [AllowAnonymous]
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -72,6 +78,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Register([Bind(Exclude = "IdRuolo")] Utente utente)
         {
             if (ModelState.IsValid)
@@ -83,7 +90,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
                 Session["IdUtente"] = utente.IdUtente;
                 FormsAuthentication.SetAuthCookie(utente.Email, true);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Home");
             }
 
             return View();

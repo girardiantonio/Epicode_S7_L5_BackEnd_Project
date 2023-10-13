@@ -4,15 +4,13 @@
     ViewBag.Title = "CreaProdotto";
 }
 
-<h2>CreaProdotto</h2>
+<h2 class="text-center">Crea Prodotto</h2>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("CreaProdotto", "Prodotto", FormMethod.Post, new { @enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Prodotto</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -26,7 +24,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.FotoUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.FotoUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.FotoUrl, new { htmlAttributes = new { @class = "form-control", type = "file" } })
                 @Html.ValidationMessageFor(model => model.FotoUrl, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -57,14 +55,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-sm btn-success mt-3 mb-3" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Ritorna alla lista", "ListaProdotto")
 </div>
 
 @section Scripts {

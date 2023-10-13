@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -10,6 +11,7 @@ using Epicode_S7_L5_BackEnd_Project.Models;
 
 namespace Epicode_S7_L5_BackEnd_Project.Controllers
 {
+    [Authorize]
     public class ProdottoController : Controller
     {
         readonly ModelDbContext db = new ModelDbContext();
@@ -40,8 +42,15 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult CreaProdotto([Bind(Include = "IdProdotto,Nome,FotoUrl,Prezzo,TempoConsegna,Ingredienti")] Prodotto prodotto)
+        public ActionResult CreaProdotto(Prodotto prodotto, HttpPostedFileBase FotoUrl)
         {
+
+            string nomeFile = FotoUrl.FileName;
+            string pathToSave = Path.Combine(Server.MapPath("~/Content/imgs"), nomeFile);
+            FotoUrl.SaveAs(pathToSave);
+
+            prodotto.FotoUrl = nomeFile;
+
             if (ModelState.IsValid)
             {
                 db.Prodotto.Add(prodotto);
@@ -63,13 +72,27 @@ namespace Epicode_S7_L5_BackEnd_Project.Controllers
             {
                 return HttpNotFound();
             }
+            TempData["fotoNome"] = prodotto.FotoUrl;
             return View(prodotto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ModificaProdotto([Bind(Include = "IdProdotto,Nome,FotoUrl,Prezzo,TempoConsegna,Ingredienti")] Prodotto prodotto)
+        public ActionResult ModificaProdotto(Prodotto prodotto, HttpPostedFileBase FotoUrl)
         {
+            if (FotoUrl != null)
+            {
+                string nomeFile = FotoUrl.FileName;
+                string pathToSave = Path.Combine(Server.MapPath("~/Content/imgs"), nomeFile);
+                FotoUrl.SaveAs(pathToSave);
+
+                prodotto.FotoUrl = nomeFile;
+            }
+            else
+            {
+                prodotto.FotoUrl = TempData["fotoNome"].ToString();
+            }
+
             if (ModelState.IsValid)
             {
                 db.Entry(prodotto).State = EntityState.Modified;

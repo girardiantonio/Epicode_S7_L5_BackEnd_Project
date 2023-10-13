@@ -2,6 +2,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
@@ -23,6 +24,7 @@ namespace Epicode_S7_L5_BackEnd_Project.Models
         public string Nome { get; set; }
 
         [StringLength(255)]
+        [DisplayName("Foto Prodotto")]
         public string FotoUrl { get; set; }
 
         public decimal Prezzo { get; set; }

@@ -19,6 +19,7 @@
                         @Html.ActionLink("Gestione Prodotti", "ListaProdotto", "Prodotto", new { area = "" }, new { @class = "nav-link mx-3" });
                         @Html.ActionLink("Gestione Utenti", "ListaUtente", "Utente", new { area = "" }, new { @class = "nav-link mx-3" });
                         @Html.ActionLink("Gestione Ordini", "ListaOrdine", "Ordine", new { area = "" }, new { @class = "nav-link mx-3" });
+                        @Html.ActionLink("Controllo Ordini", "ControlloOrdine", "Ordine", new { area = "" }, new { @class = "nav-link mx-3" });
                     }
                     else
                     {
@@ -27,14 +28,16 @@
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <div>
+                    <div class="d-flex">
+                        <ul style="list-style: none" class="m-0 p-0 mx-3">
+                            <li>@Html.ActionLink("Carrello", "VisualizzaCarrello", "Home", new { area = "" }, new { @class = "dropdown-item" })</li>
+                        </ul>
                         <ul style="list-style: none" class="m-0 p-0">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Ciao @User.Identity.Name
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li>@Html.ActionLink("Carrello", "VisualizzaCarrello", "Home", new { area = "" }, new { @class = "dropdown-item" })</li>
                                     <li>@Html.ActionLink("Ordini", "ListaOrdine", "Ordine", new { area = "" }, new { @class = "dropdown-item" })</li>
                                     <li>@Html.ActionLink("Profilo", "Profilo", "Home", new { area = "" }, new { @class = "dropdown-item" })</li>
                                     <li>@Html.ActionLink("Logout", "Logout", "Home", new { area = "" }, new { @class = "dropdown-item" })</li>
